@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 
   This external subset defines all of the entities that we'll use for URI prefixes from other
@@ -61,6 +61,12 @@
             </xsl:when>
             <xsl:when test='@SCRClass = "4"'>
               <uri prefix='&meshv;'>SCR_Organism</uri>
+            </xsl:when>
+            <xsl:when test='@SCRClass = "5"'>
+              <uri prefix='&meshv;'>SCR_Population</uri>
+            </xsl:when>
+            <xsl:when test='@SCRClass = "6"'>
+              <uri prefix='&meshv;'>SCR_Anatomy</uri>
             </xsl:when>
           </xsl:choose>
         </xsl:with-param>
