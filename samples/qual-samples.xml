@@ -1,2 +1,119 @@
-<QualifierRecordSet LanguageCode = "eng">
+<?xml version="1.0" encoding="UTF-8"?>
+<QualifierRecordSet LanguageCode="eng">
+  <QualifierRecord>
+    <QualifierUI>Q000382</QualifierUI>
+    <QualifierName>
+      <String>microbiology</String>
+    </QualifierName>
+    <DateCreated>
+      <Year>1973</Year>
+      <Month>12</Month>
+      <Day>27</Day>
+    </DateCreated>
+    <DateRevised>
+      <Year>2015</Year>
+      <Month>07</Month>
+      <Day>01</Day>
+    </DateRevised>
+    <DateEstablished>
+      <Year>1967</Year>
+      <Month>01</Month>
+      <Day>01</Day>
+    </DateEstablished>
+    <Annotation>subhead only; see also /parasitology &amp; /virology; for ability of organisms to cause disease use /pathogenicity; see MeSH scope note in Introduction; indexing policy: Manual 19.8.46; DF: /microbiol or /MI
+  </Annotation>
+    <HistoryNote>67; used with Category A &amp; C 1967-74; A, B1-2, B6, C &amp; F3 1975-86; A, B1-2, B6, C, F3 &amp; INFANT, NEWBORN+; A, B1-2, B6, C &amp; F3 1990 forward
+  </HistoryNote>
+    <OnlineNote>search policy: Online Manual; use: main heading/MI or MI (SH) or SUBS APPLY MI
+  </OnlineNote>
+    <TreeNumberList>
+      <TreeNumber>Y05.070</TreeNumber>
+    </TreeNumberList>
+    <ConceptList>
+      <Concept PreferredConceptYN="Y">
+        <ConceptUI>M0030588</ConceptUI>
+        <ConceptName>
+          <String>microbiology</String>
+        </ConceptName>
+        <ScopeNote>Used with organs, animals, and higher plants and with diseases for microbiologic studies. For parasites, "parasitology" is used; for viruses, "virology" is used.
+    </ScopeNote>
+        <ConceptRelationList>
+          <ConceptRelation RelationName="NRW">
+            <Concept1UI>M0030588</Concept1UI>
+            <Concept2UI>M0030593</Concept2UI>
+          </ConceptRelation>
+          <ConceptRelation RelationName="NRW">
+            <Concept1UI>M0030588</Concept1UI>
+            <Concept2UI>M0030592</Concept2UI>
+          </ConceptRelation>
+        </ConceptRelationList>
+        <TermList>
+          <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="NON" RecordPreferredTermYN="Y">
+            <TermUI>T060998</TermUI>
+            <String>microbiology</String>
+            <Abbreviation>MI</Abbreviation>
+            <EntryVersion>MICROBIOL</EntryVersion>
+          </Term>
+        </TermList>
+      </Concept>
+      <Concept PreferredConceptYN="N">
+        <ConceptUI>M0030593</ConceptUI>
+        <ConceptName>
+          <String>fungi</String>
+        </ConceptName>
+        <ConceptRelationList>
+          <ConceptRelation RelationName="NRW">
+            <Concept1UI>M0030588</Concept1UI>
+            <Concept2UI>M0030593</Concept2UI>
+          </ConceptRelation>
+        </ConceptRelationList>
+        <TermList>
+          <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="NON" RecordPreferredTermYN="N">
+            <TermUI>T061003</TermUI>
+            <String>fungi</String>
+          </Term>
+        </TermList>
+      </Concept>
+      <Concept PreferredConceptYN="N">
+        <ConceptUI>M0030592</ConceptUI>
+        <ConceptName>
+          <String>bacteria</String>
+        </ConceptName>
+        <ConceptRelationList>
+          <ConceptRelation RelationName="NRW">
+            <Concept1UI>M0030588</Concept1UI>
+            <Concept2UI>M0030592</Concept2UI>
+          </ConceptRelation>
+        </ConceptRelationList>
+        <TermList>
+          <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="NON" RecordPreferredTermYN="N">
+            <TermUI>T061002</TermUI>
+            <String>bacteria</String>
+          </Term>
+        </TermList>
+      </Concept>
+    </ConceptList>
+  </QualifierRecord>
+  <Concept PreferredConceptYN="N">
+    <ConceptUI>M0030759</ConceptUI>
+    <ConceptName>
+      <String>secretion</String>
+    </ConceptName>
+    <ScopeNote>Used for the discharge across the cell membrane, into the extracellular space or ducts, of endogenous substances resulting from the activity of intact cells of glands, tissues, or organs.
+    </ScopeNote>
+    <ConceptRelationList>
+      <ConceptRelation RelationName="NRW">
+        <Concept1UI>M0030575</Concept1UI>
+        <Concept2UI>M0030759</Concept2UI>
+      </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+      <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="NON" RecordPreferredTermYN="N">
+        <TermUI>T061192</TermUI>
+        <String>secretion</String>
+        <Abbreviation>SE</Abbreviation>
+        <EntryVersion>SECRET</EntryVersion>
+      </Term>
+    </TermList>
+  </Concept>
 </QualifierRecordSet>
