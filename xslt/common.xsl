@@ -16,7 +16,7 @@
 
   <xsl:param name='label-lang' select='"en"'/>
   <xsl:param name='uri-year-segment' select='""'/>
-  
+
   <xsl:variable name='mesh-prefix'>
     <xsl:choose>
       <xsl:when test="$uri-year-segment = ''">
@@ -27,13 +27,13 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  
+
     <xsl:message>
       <xsl:text>- mesh-prefix = '</xsl:text>
       <xsl:value-of select="$mesh-prefix"/>
       <xsl:text>'</xsl:text>
     </xsl:message>
-  
+
   <xsl:key name='tree-numbers' match="//TreeNumber" use='.'/>
 
   <!--
@@ -449,7 +449,7 @@
           select='key("tree-numbers", $parent-tree-number)'/>
 
         <xsl:if test='$parent-tree-number-element'>
-          <xsl:if test='ancestor::DescriptorRecord'>
+            <xsl:for-each select='$parent-tree-number-element/ancestor::DescriptorRecord'>
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
                 <desc>Also create a simple meshv:broader relationship between this descriptor and
@@ -459,12 +459,12 @@
                 <xsl:copy-of select="$parent"/>
                 <uri prefix='&meshv;'>broaderDescriptor</uri>
                 <uri prefix='{$mesh-prefix}'>
-                  <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
+                  <xsl:value-of select='DescriptorUI'/>
                 </uri>
               </xsl:with-param>
             </xsl:call-template>
-          </xsl:if>
-          <xsl:if test='ancestor::QualifierRecord'>
+          </xsl:for-each>
+	  <xsl:for-each select='$parent-tree-number-element/ancestor::QualifierRecord'>
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
                 <desc>Also create a simple meshv:broader relationship between this qualifier and
@@ -474,11 +474,11 @@
                 <xsl:copy-of select="$parent"/>
                 <uri prefix='&meshv;'>broaderQualifier</uri>
                 <uri prefix='{$mesh-prefix}'>
-                  <xsl:value-of select="$parent-tree-number-element/ancestor::QualifierRecord/QualifierUI"/>
+                  <xsl:value-of select='QualifierUI'/>
                 </uri>
               </xsl:with-param>
             </xsl:call-template>
-          </xsl:if>
+          </xsl:for-each>
         </xsl:if>
       </xsl:if>
     </xsl:for-each>
