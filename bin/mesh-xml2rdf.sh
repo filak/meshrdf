@@ -31,7 +31,7 @@ fi
 cd $($READLINK -e `dirname $0`/..)
 
 OASIS_CATALOG=""
-MESH_JAVA_OPTS="-Xms4g -Xmx4g"
+MESH_JAVA_OPTS="-Xms4g -Xmx8g"
 
 while getopts "h:j:r:y:x:o:c:u" opt; do
   case $opt in
