@@ -15,6 +15,7 @@
 
 
   <xsl:template match="/">
+    <xsl:call-template name="init"/>
 
     <!-- triples for Qualifier Records -->
 
