@@ -98,7 +98,13 @@ fi
 
 # Do the conversions
 
+echo Creating output dir: $OUTDIR
+
 mkdir -p $OUTDIR
+
+echo URI_PREFIX: $URI_PREFIX
+
+echo Converting qual$YEAR.xml
 
 java $MESH_JAVA_OPTS -cp "$_CP" net.sf.saxon.Transform -s:"$MESHRDF_HOME/data/qual$YEAR.xml" \
     -xsl:xslt/qual.xsl $OASIS_CATALOG_ARG $URI_YEAR_PARAM > "$OUTFILE-dups.nt"
@@ -107,12 +113,16 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo Converting desc$YEAR.xml
+
 java $MESH_JAVA_OPTS -cp "$_CP" net.sf.saxon.Transform -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
     -xsl:xslt/desc.xsl $OASIS_CATALOG_ARG $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/desc$YEAR.xml" 1>&2
     exit 1
 fi
+
+echo Converting supp$YEAR.xml
 
 java $MESH_JAVA_OPTS -cp "$_CP" net.sf.saxon.Transform -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
     -xsl:xslt/supp.xsl $OASIS_CATALOG_ARG $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
@@ -121,16 +131,15 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-if [ -f "$MESHRDF_HOME/data/cns-disease-2014AB.nt" ]; then
-    sed -e "s,http://id.nlm.nih.gov/mesh,$URI_PREFIX," \
-        "$MESHRDF_HOME/data/cns-disease-2014AB.nt" >> "$OUTFILE-dups.nt"
-fi
+echo Deduplicating $OUTFILE-dups.nt
 
 sort -u -T"$OUTDIR" "$OUTFILE-dups.nt" > "$OUTFILE.nt"
-if [ $? -ne 0 ]; then 
+if [ $? -ne 0 ]; then
     echo "Error deduplicating $OUTFILE-dups.nt" 1>&2
     exit 1
 fi
+
+echo Compressing $OUTFILE.nt
 
 gzip -c "$OUTFILE.nt" > "$OUTFILE.nt.gz"
 if [ $? -ne 0 ]; then
@@ -138,25 +147,5 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Copy the meta files
-cp meta/vocabulary.ttl $OUTDIR
-cp meta/void.ttl $OUTDIR
-cp meta/service_description.ttl $OUTDIR
-
-# Set up hard links to version-specific vocabulary and void 
-cd $OUTDIR
-
-vocab_version=`awk '$1~/versionInfo/ { gsub(/"/, "", $2); print $2 }' vocabulary.ttl`
-if [ -z "$vocab_version" ]; then 
-    echo "Unable to determine vocabulary.ttl version" 1>&2
-    exit 1
-fi
-
-void_version=`awk '$1~/versionInfo/ { gsub(/"/, "", $2); print $2 }' void.ttl`
-if [ -z "$void_version" ]; then 
-    echo "Unable to determine void.ttl version" 1>&2
-fi
-
-ln -f void.ttl void_$vocab_version.ttl
-ln -f vocabulary.ttl vocabulary_$vocab_version.ttl
+echo "Finished !"
 

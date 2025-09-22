@@ -12,8 +12,11 @@
                 xmlns:xs="&xs;"
                 exclude-result-prefixes="xs f">
 
+  <xsl:strip-space elements="*"/>
+
   <xsl:param name='label-lang' select='"en"'/>
   <xsl:param name='uri-year-segment' select='""'/>
+
   <xsl:variable name='mesh-prefix'>
     <xsl:choose>
       <xsl:when test="$uri-year-segment = ''">
@@ -24,7 +27,13 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  
+
+    <xsl:message>
+      <xsl:text>- mesh-prefix = '</xsl:text>
+      <xsl:value-of select="$mesh-prefix"/>
+      <xsl:text>'</xsl:text>
+    </xsl:message>
+
   <xsl:key name='tree-numbers' match="//TreeNumber" use='.'/>
 
   <!--
@@ -69,19 +78,20 @@
       </xsl:call-template>
 
   -->
-   <!-- Function to trim leading and trailing whitespace -->
-   <xsl:function name="f:trim-literal" as="xs:string">
-        <xsl:param name="text" as="xs:string"/>
-        <xsl:value-of select="normalize-space($text)"/>
-   </xsl:function>
 
   <xsl:template name='triple'>
     <xsl:param name='doc'/>
     <xsl:param name='spec'/>
     <xsl:if test='count($spec/*) != 3'>
       <xsl:message terminate="yes">
-        <!-- <xsl:value-of select="concat('at line ', saxon:line-number())"/> -->
-        <xsl:text>Wrong number of element children of spec param of triple template</xsl:text>
+        <xsl:text>Error: Wrong number of element children of spec param of triple template: </xsl:text>
+<xsl:text>
+        1:</xsl:text>
+        <xsl:value-of select="$spec/*[1]"/><xsl:text>
+        2:</xsl:text>
+        <xsl:value-of select="$spec/*[2]"/><xsl:text>
+        3:</xsl:text>
+        <xsl:value-of select="$spec/*[3]"/>
       </xsl:message>
     </xsl:if>
     <xsl:variable name='s' select='$spec/*[1]'/>
@@ -89,22 +99,7 @@
 
     <!-- Strip leading and/or trailing whitespace from all literal values.  See issue #27.  We will issue a warning when these are
       encountered, and strip them out. -->
-        <xsl:variable name='o' as='element()'>
-            <xsl:variable name='oo' select='$spec/*[3]'/>
-
-            <!-- Always apply trim-literal to literal values -->
-      <xsl:choose>
-                <xsl:when test='$oo/self::literal'>
-          <literal>
-            <xsl:copy-of select='$oo/@*'/>
-            <xsl:value-of select='f:trim-literal($oo)'/>
-          </literal>
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:copy-of select='$oo'/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
+    <xsl:variable name='o' as="element()" select='$spec/*[3]'/>
 
     <xsl:value-of select='f:triple(
         f:serialize($s),
