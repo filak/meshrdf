@@ -15,11 +15,15 @@
 
 
   <xsl:template match="/">
+<<<<<<< Updated upstream
     <xsl:message>
       <xsl:text>mesh-prefix = '</xsl:text>
       <xsl:value-of select="$mesh-prefix"/>
       <xsl:text>'</xsl:text>
     </xsl:message>
+=======
+   <xsl:call-template name="init"/>
+>>>>>>> Stashed changes
 
     <!-- triples for Qualifier Records -->
 

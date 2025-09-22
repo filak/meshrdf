@@ -24,7 +24,20 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+<<<<<<< Updated upstream
   
+=======
+
+<!-- New named template for initialization and debugging -->
+  <xsl:template name="init">
+    <xsl:message>
+      <xsl:text>- mesh-prefix = '</xsl:text>
+      <xsl:value-of select="$mesh-prefix"/>
+      <xsl:text>'</xsl:text>
+    </xsl:message>
+  </xsl:template>
+
+>>>>>>> Stashed changes
   <xsl:key name='tree-numbers' match="//TreeNumber" use='.'/>
 
   <!--
