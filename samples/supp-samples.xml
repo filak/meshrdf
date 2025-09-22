@@ -2473,4 +2473,175 @@
    </Concept>
   </ConceptList>
  </SupplementalRecord>
+<SupplementalRecord SCRClass = "5">
+  <SupplementalRecordUI>C000724850</SupplementalRecordUI>
+  <SupplementalRecordName>
+   <String>Pokagon Band of Potawatomi Indians, Michigan and Indiana</String>
+  </SupplementalRecordName>
+  <DateCreated>
+   <Year>2022</Year>
+   <Month>11</Month>
+   <Day>29</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2022</Year>
+   <Month>12</Month>
+   <Day>08</Day>
+  </DateRevised>
+  <Frequency>0</Frequency>
+  <HeadingMappedToList>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>*D044467</DescriptorUI>
+     <DescriptorName>
+      <String>American Indian or Alaska Native</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+   </HeadingMappedTo>
+  </HeadingMappedToList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M000760288</ConceptUI>
+    <ConceptName>
+     <String>Pokagon Band of Potawatomi Indians, Michigan and Indiana</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
+      <TermUI>T001128179</TermUI>
+      <String>Pokagon Band of Potawatomi Indians, Michigan and Indiana</String>
+      <DateCreated>
+       <Year>2022</Year>
+       <Month>11</Month>
+       <Day>29</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NIMHD(2023)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T001131258</TermUI>
+      <String>Pokagon Band of Potawatomi Indians</String>
+      <DateCreated>
+       <Year>2022</Year>
+       <Month>12</Month>
+       <Day>08</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NIMHD(2023)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T001128180</TermUI>
+      <String>Pokegnek Bodewadmik</String>
+      <DateCreated>
+       <Year>2022</Year>
+       <Month>11</Month>
+       <Day>29</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NIMHD(2023)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </SupplementalRecord>
+<SupplementalRecord SCRClass = "6">
+  <SupplementalRecordUI>C000728888</SupplementalRecordUI>
+  <SupplementalRecordName>
+   <String>plastron, shell</String>
+  </SupplementalRecordName>
+  <DateCreated>
+   <Year>2023</Year>
+   <Month>07</Month>
+   <Day>07</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2023</Year>
+   <Month>07</Month>
+   <Day>07</Day>
+  </DateRevised>
+  <Note>bottom or ventral half of a shell from TURTLES, tortoises, and terrapins
+  </Note>
+  <HeadingMappedToList>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>*D060105</DescriptorUI>
+     <DescriptorName>
+      <String>Animal Shells</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+   </HeadingMappedTo>
+  </HeadingMappedToList>
+  <IndexingInformationList>
+   <IndexingInformation>
+     <DescriptorReferredTo>
+    <DescriptorUI>D014426</DescriptorUI>
+     <DescriptorName>
+      <String>Turtles</String>
+      </DescriptorName>
+     </DescriptorReferredTo>
+   </IndexingInformation>
+  </IndexingInformationList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M000765606</ConceptUI>
+    <ConceptName>
+     <String>plastron, shell</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
+      <TermUI>T001138635</TermUI>
+      <String>plastron, shell</String>
+      <DateCreated>
+       <Year>2023</Year>
+       <Month>07</Month>
+       <Day>07</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2023)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T001138637</TermUI>
+      <String>ventral shell</String>
+      <DateCreated>
+       <Year>2023</Year>
+       <Month>07</Month>
+       <Day>07</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2023)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T001138638</TermUI>
+      <String>plastra, shell</String>
+      <DateCreated>
+       <Year>2023</Year>
+       <Month>07</Month>
+       <Day>07</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2023)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T001138636</TermUI>
+      <String>plastrons, shell</String>
+      <DateCreated>
+       <Year>2023</Year>
+       <Month>07</Month>
+       <Day>07</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2023)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </SupplementalRecord>
 </SupplementalRecordSet>
