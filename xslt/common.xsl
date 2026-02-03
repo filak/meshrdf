@@ -12,11 +12,11 @@
                 xmlns:xs="&xs;"
                 exclude-result-prefixes="xs f">
 
-  <xsl:strip-space elements="*"/>
+  <!-- Strip unnecessary whitespace-only text nodes -->
+  <xsl:strip-space elements="*" />
 
   <xsl:param name='label-lang' select='"en"'/>
   <xsl:param name='uri-year-segment' select='""'/>
-
   <xsl:variable name='mesh-prefix'>
     <xsl:choose>
       <xsl:when test="$uri-year-segment = ''">
@@ -81,7 +81,6 @@
       </xsl:call-template>
 
   -->
-
    <!-- Function to trim leading and trailing whitespace -->
    <xsl:function name="f:trim-literal" as="xs:string">
         <xsl:param name="text" as="xs:string"/>
@@ -93,22 +92,18 @@
     <xsl:param name='spec'/>
     <xsl:if test='count($spec/*) != 3'>
       <xsl:message terminate="yes">
-        <xsl:text>Error: Wrong number of element children of spec param of triple template: </xsl:text>
-<xsl:text>
-        1:</xsl:text>
-        <xsl:value-of select="$spec/*[1]"/><xsl:text>
-        2:</xsl:text>
-        <xsl:value-of select="$spec/*[2]"/><xsl:text>
-        3:</xsl:text>
-        <xsl:value-of select="$spec/*[3]"/>
+        <!-- <xsl:value-of select="concat('at line ', saxon:line-number())"/> -->
+        <xsl:text>Wrong number of element children of spec param of triple template</xsl:text>
       </xsl:message>
     </xsl:if>
     <xsl:variable name='s' select='$spec/*[1]'/>
     <xsl:variable name='p' select='$spec/*[2]'/>
 
-    <!-- Strip leading and/or trailing whitespace from all literal values.  See issue #27  -->
+    <!-- Strip leading and/or trailing whitespace from all literal values.  See issue #27.  We will issue a warning when these are
+      encountered, and strip them out. -->
     <xsl:variable name='o' as='element()'>
             <xsl:variable name='oo' select='$spec/*[3]'/>
+
             <!-- Always apply trim-literal to literal values -->
       <xsl:choose>
         <xsl:when test='$oo/self::literal'>
@@ -294,6 +289,37 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:if>
+    <!-- DateIntroduced, is the new data element added with 2026 DTD changes   -->
+    <xsl:if test="DateIntroduced">
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <desc>A record has a date on which it was introduced.</desc>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <xsl:copy-of select="$parent"/>
+          <uri prefix='&meshv;'>dateIntroduced</uri>
+          <xsl:call-template name="DateLiteral">
+            <xsl:with-param name="context" select="DateIntroduced"/>
+          </xsl:call-template>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+    
+    <!-- LastUpdated, is the new data element added with 2026 DTD changes -->
+    <xsl:if test="LastUpdated">
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <desc>A record can have a date on which it was last updated.</desc>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <xsl:copy-of select="$parent"/>
+          <uri prefix='&meshv;'>lastUpdated</uri>
+          <xsl:call-template name="DateLiteral">
+            <xsl:with-param name="context" select="LastUpdated"/>
+          </xsl:call-template>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if> 
 
     <!--
       Tranformation rule: activeMeSHYear
